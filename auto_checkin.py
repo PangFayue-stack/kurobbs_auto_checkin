@@ -146,20 +146,28 @@ def configure_logger(debug: bool = False):
 
 def main():
     """Main function to handle command-line arguments and start the sign-in process."""
+    # 获取环境变量TOKEN
     token = os.getenv("TOKEN")
+    # 获取环境变量DEBUG，默认为False
     debug = os.getenv("DEBUG", False)
+    # 配置日志记录器，debug参数为debug
     configure_logger(debug=debug)
 
     try:
+        # 创建KurobbsClient对象，token参数为token
         kurobbs = KurobbsClient(token)
+        # 启动KurobbsClient对象
         kurobbs.start()
+        # 如果kurobbs对象有msg属性，则发送通知
         if kurobbs.msg:
             send_notification(kurobbs.msg)
     except KurobbsClientException as e:
+        # 如果发生KurobbsClientException异常，记录错误日志，不记录异常堆栈信息，发送通知，退出程序
         logger.error(str(e), exc_info=False)
         send_notification(str(e))
         sys.exit(1)
     except Exception as e:
+        # 如果发生其他异常，记录错误日志，发送通知，退出程序
         logger.error(f"An unexpected error occurred: {e}")
         sys.exit(1)
 
