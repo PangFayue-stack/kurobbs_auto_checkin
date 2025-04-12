@@ -165,11 +165,11 @@ def main():
         # 如果发生KurobbsClientException异常，记录错误日志，不记录异常堆栈信息，发送通知，退出程序
         logger.error(str(e), exc_info=False)
         send_notification(str(e))
-        sys.exit(1)
+        # sys.exit(1)
     except Exception as e:
         # 如果发生其他异常，记录错误日志，发送通知，退出程序
         logger.error(f"An unexpected error occurred: {e}")
-        sys.exit(1)
+        # sys.exit(1)
 
 
 if __name__ == "__main__":
