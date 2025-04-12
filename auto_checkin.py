@@ -153,6 +153,9 @@ def main():
     # 配置日志记录器，debug参数为debug
     configure_logger(debug=debug)
 
+    print("get token=")
+    print(token)
+
     try:
         # 创建KurobbsClient对象，token参数为token
         kurobbs = KurobbsClient(token)
