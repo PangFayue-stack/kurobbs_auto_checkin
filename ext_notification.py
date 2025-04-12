@@ -56,6 +56,9 @@ def send_feishu_notification(title, message):
         "Content-Type": "application/json"
     }
 
-    response = requests.post(webhook_url, headers=headers, data=json.dumps(data))
-    print(response.status_code, response.text)
+    if webhook_url:
+        response = requests.post(webhook_url, headers=headers, data=json.dumps(data))
+        logger.debug(response.status_code, response.text)
+    else:
+        logger.debug("Feishu webhook url not exists.")
 

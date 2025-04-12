@@ -148,15 +148,23 @@ def main():
     """Main function to handle command-line arguments and start the sign-in process."""
     # 获取环境变量TOKEN
     token = os.getenv("TOKEN")
+    token1 = os.getenv("TOKEN1")
     # 获取环境变量DEBUG，默认为False
     debug = os.getenv("DEBUG", False)
     # 配置日志记录器，debug参数为debug
     configure_logger(debug=debug)
 
+    # 小号签到
+    if token1:
+        kurobbs = KurobbsClient(token1)
+        logger.info("小号")
+        kurobbs.start()
+
     try:
         # 创建KurobbsClient对象，token参数为token
         kurobbs = KurobbsClient(token)
         # 启动KurobbsClient对象
+        logger.info("大号")
         kurobbs.start()
         # 如果kurobbs对象有msg属性，则发送通知
         if kurobbs.msg:
