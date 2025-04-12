@@ -56,7 +56,6 @@ def send_feishu_notification(title, message):
         "Content-Type": "application/json"
     }
 
-    print(webhook_url)
     response = requests.post(webhook_url, headers=headers, data=json.dumps(data))
     print(response.status_code, response.text)
 
