@@ -1,6 +1,7 @@
 import os
 
 import requests
+import json
 from loguru import logger
 from serverchan_sdk import sc_send
 
@@ -9,6 +10,7 @@ def send_notification(message):
     title = "库街区自动签到任务"
     send_bark_notification(title, message)
     send_server3_notification(title, message)
+    send_feishu_notification(title, message)
 
 
 def send_bark_notification(title, message):
@@ -35,3 +37,25 @@ def send_server3_notification(title, message):
         logger.debug(response)
     else:
         logger.debug("ServerChan3 send key not exists.")
+
+def send_feishu_notification(title, message):
+    """Send a notification via 飞书."""
+    webhook_url = os.getenv("FEISHU_WEBHOOK_URL")
+
+    title = title+"(local)"
+
+    data = {
+        "msg_type": "text",
+        "title": title,
+        "content": {
+            "text": message
+        }
+    }
+
+    headers = {
+        "Content-Type": "application/json"
+    }
+
+    response = requests.post(webhook_url, headers=headers, data=json.dumps(data))
+    print(response.status_code, response.text)
+
