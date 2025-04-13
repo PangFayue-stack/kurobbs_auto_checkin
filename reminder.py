@@ -102,7 +102,10 @@ class KurobbsClient:
             refreshTime = datetime.fromtimestamp(data['energyData']["refreshTimeStamp"])
 
             success_message = f"当前结晶波片数量: {cur}/{total}\n"
-            success_message += f"预计充满时间: {refreshTime.strftime('%Y-%m-%d %H:%M:%S')}"
+            if data['energyData']["refreshTimeStamp"]:
+                success_message += f"预计充满时间: {refreshTime.strftime('%Y-%m-%d %H:%M:%S')}"
+            else:
+                success_message += "结晶波片已充满"
             logger.debug(success_message)
             self.result[action_name] = success_message
             
