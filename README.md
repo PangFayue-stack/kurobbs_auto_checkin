@@ -17,10 +17,19 @@ python reminder1.py
 
 本项目的配置具体参考[原项目](https://github.com/leeezep/kurobbs_auto_checkin.git) 
 
-配置完成后 run workflow 中的`Energy Data Reminder`即体力提醒的工作流，时间设置是晚上7点触发。如果想每个小时触发一次 将`reminder.yaml` 改成`- cron: '0 * * * *'`
+## 注意事项
+
+- 确保 `TOKEN` 的安全性，不要将其直接写在代码中。
+- 如果需要修改定时任务的执行时间，可以编辑 [`.github/workflows/auto_sign.yaml`](https://github.com/leeezep/kurobbs_auto_checkin/blob/main/.github/workflows/auto_checkin.yaml) 文件中的 `cron` 表达式。
+- 配置完成后 run workflow 中的`Energy Data Reminder`即体力提醒的工作流，时间设置是晚上7点触发。
+- 如果需要修改体力提醒时间，可以修改[`.github/workflows/reminder.yaml`](https://github.com/leeezep/kurobbs_auto_checkin/blob/main/.github/workflows/auto_checkin.yaml) 文件中的 `cron` 表达式，需要每小时提醒一次，可以改成`- cron: '0 * * * *'`。
 
 ## 特别感谢
 
 * 本项目基于[kurobbs_auto_checkin](https://github.com/leeezep/kurobbs_auto_checkin) 做了优化和改动
 
 * 体力提醒部分参考了 [TomyJan-API-Collection](https://github.com/TomyJan/Kuro-API-Collection) 的 API 实现。感谢TomyJan 的开源贡献
+
+## 贡献
+
+如果你有任何改进建议或发现问题，欢迎提交 Issue 或 Pull Request.
