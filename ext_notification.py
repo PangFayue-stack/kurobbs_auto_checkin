@@ -12,6 +12,10 @@ def send_notification(message):
     send_server3_notification(title, message)
     send_feishu_notification(title, message)
 
+def send_notification_with_title(title, message):
+    send_bark_notification(title, message)
+    send_server3_notification(title, message)
+    send_feishu_notification(title, message)
 
 def send_bark_notification(title, message):
     """Send a notification via Bark."""
@@ -55,10 +59,17 @@ def send_feishu_notification(title, message):
     headers = {
         "Content-Type": "application/json"
     }
-
+    
     if webhook_url:
-        response = requests.post(webhook_url, headers=headers, data=json.dumps(data))
-        logger.debug(response.status_code, response.text)
+        response = requests.post(webhook_url, headers=headers, data=json.dumps(data))      
+        logger.debug(response.text)
+        resp_json = response.json()
+
+        if resp_json.get("code") == 0 and resp_json.get("msg") == "success":
+            logger.info("Feishu notification sent:" + message)
+        else:
+            logger.warning("Feishu notification failed: " + response.text)
     else:
-        logger.debug("Feishu webhook url not exists.")
+        logger.warning("Feishu webhook url not exists.")
+    
 
