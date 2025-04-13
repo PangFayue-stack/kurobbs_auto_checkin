@@ -7,7 +7,7 @@ on:
   workflow_dispatch:  # 允许手动触发
 
 jobs:
-  auto-sign:
+  energy-reminder:
     runs-on: ubuntu-latest  # 使用最新的 Ubuntu 环境
 
     steps:

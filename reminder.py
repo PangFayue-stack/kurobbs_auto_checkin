@@ -96,10 +96,9 @@ class KurobbsClient:
             # 计算剩余结晶波片数量
             cur = data['energyData']['cur']
             total = data['energyData']['total']
-            remaining = total - cur
 
             # 当前服务器时间戳 → datetime
-            refreshTime = datetime.fromtimestamp(data['energyData']["refreshTimeStamp"])
+            refreshTime = datetime.fromtimestamp(data['energyData']["refreshTimeStamp"], ZoneInfo('Asia/Shanghai'))
 
             success_message = f"当前结晶波片数量: {cur}/{total}\n"
             if data['energyData']["refreshTimeStamp"]:
