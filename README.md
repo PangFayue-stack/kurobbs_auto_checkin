@@ -20,9 +20,9 @@ python reminder1.py
 ## 注意事项
 
 - 确保 `TOKEN` 的安全性，不要将其直接写在代码中。
-- 如果需要修改定时任务的执行时间，可以编辑 [`.github/workflows/auto_sign.yaml`](https://github.com/leeezep/kurobbs_auto_checkin/blob/main/.github/workflows/auto_checkin.yaml) 文件中的 `cron` 表达式。
+- 如果需要修改定时任务的执行时间，可以编辑 [`.github/workflows/auto_sign.yaml`](https://github.com/PangFayue-stack/kurobbs_auto_checkin/blob/main/.github/workflows/auto_checkin.yaml) 文件中的 `cron` 表达式。
 - 配置完成后 run workflow 中的`Energy Data Reminder`即体力提醒的工作流，时间设置是晚上7点触发。
-- 如果需要修改体力提醒时间，可以修改[`.github/workflows/reminder.yaml`](https://github.com/leeezep/kurobbs_auto_checkin/blob/main/.github/workflows/reminder.yaml) 文件中的 `cron` 表达式，需要每小时提醒一次，可以改成`- cron: '0 * * * *'`。
+- 如果需要修改体力提醒时间，可以修改[`.github/workflows/reminder.yaml`](https://github.com/PangFayue-stack/kurobbs_auto_checkin/blob/main/.github/workflows/reminder.yaml) 文件中的 `cron` 表达式，需要每小时提醒一次，可以改成`- cron: '0 * * * *'`。
 
 ## 特别感谢
 
