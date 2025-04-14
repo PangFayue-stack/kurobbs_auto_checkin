@@ -8,8 +8,8 @@ from auto_checkin import configure_logger
 
 def main():
 
-    account = os.getenv('account')
-    password = os.getenv('password')
+    account = os.getenv('ACCOUNT')
+    password = os.getenv('PASSWORD')
     debug = os.getenv("DEBUG", False)
     configure_logger(debug=debug)
 
