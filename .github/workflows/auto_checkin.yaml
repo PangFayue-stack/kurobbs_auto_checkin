@@ -35,6 +35,8 @@ jobs:
           TOKEN: ${{ secrets.TOKEN }}
           TOKEN1: ${{ secrets.TOKEN1 }}
           DEBUG: ${{ secrets.DEBUG }}
+          ACCOUNT: ${{ secrets.ACCOUNT }}
+          PASSWORD: ${{ secrets.PASSWORD }}
           BARK_DEVICE_KEY: ${{ secrets.BARK_DEVICE_KEY }}
           BARK_SERVER_URL: ${{ secrets.BARK_SERVER_URL }}
           SERVER3_SEND_KEY: ${{ secrets.SERVER3_SEND_KEY }} # ServerChan3
