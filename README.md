@@ -5,6 +5,9 @@
 本仓库fork自https://github.com/leeezep/kurobbs_auto_checkin.git
 
 ## 新增功能
+
+### 体力提醒
+
 获取结晶波片数量并提醒 文件夹reminder1.py用于调试。
 
 ```shell
@@ -17,6 +20,18 @@ python reminder1.py
 
 本项目的配置具体参考[原项目](https://github.com/leeezep/kurobbs_auto_checkin.git) 
 
+### 原神米游社签到
+
+同上的配置 需要在run workflow中设置环境变量account 和 password分别对应米游社的账号和密码用于登录。如果需要绝区零崩铁之类的签到，在`mys/main`内取消函数的注释即可
+
+手动签到启动genshin_checkin.py
+
+```shell
+python genshin_checkin.py
+```
+
+
+
 ## 注意事项
 
 - 确保 `TOKEN` 的安全性，不要将其直接写在代码中。
@@ -27,8 +42,8 @@ python reminder1.py
 ## 特别感谢
 
 * 本项目基于[kurobbs_auto_checkin](https://github.com/leeezep/kurobbs_auto_checkin) 做了优化和改动
-
 * 体力提醒部分参考了 [TomyJan-API-Collection](https://github.com/TomyJan/Kuro-API-Collection) 的 API 实现。感谢TomyJan 的开源贡献
+* 米游社部分参考了**[AutoLiver](https://github.com/tuotuooo/AutoLiver)** 开源的实现
 
 ## 贡献
 

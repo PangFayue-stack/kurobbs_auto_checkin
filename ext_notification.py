@@ -7,7 +7,7 @@ from serverchan_sdk import sc_send
 
 
 def send_notification(message):
-    title = "库街区自动签到任务"
+    title = "库街区签到"
     send_bark_notification(title, message)
     send_server3_notification(title, message)
     send_feishu_notification(title, message)
