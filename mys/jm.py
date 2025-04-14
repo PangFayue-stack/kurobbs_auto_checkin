@@ -35,8 +35,8 @@ def main():
     config.read('canshu.cfg',encoding='utf-8')
     # z = config['mw']['account']
     # m = config['mw']['password']
-    z = os.getenv('account')
-    m = os.getenv('password')
+    z = sys.argv[1]
+    m = sys.argv[2]
     canshu['account'] = jm(z,m)[0]
     canshu['password'] = jm(z,m)[1]
     for key, value in canshu.items():
