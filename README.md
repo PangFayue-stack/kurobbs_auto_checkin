@@ -22,7 +22,7 @@ python reminder1.py
 
 ### 原神米游社签到
 
-同上的配置 需要在run workflow中设置环境变量account 和 password分别对应米游社的账号和密码用于登录。如果需要绝区零崩铁之类的签到，在`mys/main`内取消函数的注释即可
+同上的配置 需要在run workflow中设置环境变量ACCOUNT(米游社账号) PASSWORD(米游社登录密码)，在`msy/canshu.cfg`设置米游社id和原神的uid。 如果需要绝区零崩铁之类的签到，在`mys/main`内取消函数的注释即可
 
 手动签到启动genshin_checkin.py
 

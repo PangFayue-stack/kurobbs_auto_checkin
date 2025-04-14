@@ -64,10 +64,6 @@ def HQcookie_token(token,mid):
 
     response = requests.get(url, headers=headers)
     data = response.text
-
-    # if data == None:
-    #     logger.error("登录失败" + data["msg"])
-
     parsed_data = json.loads(data)
     cookie_token = parsed_data['data']['cookie_token']
     response = requests.get(url1, headers=headers)
@@ -94,7 +90,7 @@ def main():
     with open('canshu.cfg', 'w') as configfile:
         config.write(configfile)
 
-    logger.info("[原神]finish canshu_requests!")
+    logger.debug("[原神]finish canshu_requests!")
 
 if __name__ == "__main__":
     main()

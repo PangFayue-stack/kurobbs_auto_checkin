@@ -44,7 +44,7 @@ def main():
     with open('canshu.cfg', 'w') as configfile:
         config.write(configfile)
 
-    logger.info("[原神]finish jm.py")
+    logger.debug("[原神]finish jm.py")
     
 
 if __name__ == "__main__":

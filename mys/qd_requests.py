@@ -51,8 +51,11 @@ def main():
             'cookie_token=' + cookie_token + ';'
     }
     result = qiandaorequest(headers,game_uid,url,hdid,region)
-    send_notification_with_title("米游社签到", result)
-    logger.info('[原神]米游社签到成功')
+    if '签到' in json.loads(result).get('message'):
+        send_notification_with_title("米游社签到", result)
+        logger.info('[原神]米游社签到成功')
+    else:
+        logger.error('[原神]米游社签到失败')
 
 if __name__ == "__main__":
     main()
